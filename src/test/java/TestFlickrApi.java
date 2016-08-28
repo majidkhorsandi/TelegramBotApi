@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  */
 public class TestFlickrApi {
 
-    private static final String invalidUserId = "invaliduserid";
+    private static final String invalidUserId = "invammliduserid";
 
     @Test
     public void testGetPhotoLinkWithInvalidUserId() {
