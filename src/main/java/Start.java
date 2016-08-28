@@ -1,19 +1,19 @@
-import at.mukprojects.giphy4j.Giphy;
-import at.mukprojects.giphy4j.entity.search.SearchFeed;
-import at.mukprojects.giphy4j.exception.GiphyException;
+import com.flickr4java.flickr.FlickrException;
+import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class Start {
 
+    private static final String BOT_PATH = "https://api.telegram.org/bot250024402:AAErvbeFLpIEC-Oe-yjCneU7SgPu7RdTwDM/sendMessage";
     public static void main(String[] args) {
-        Updates updates = new Updates();
-       // System.out.println(updates.getUpdates());
-        Giphy giphy = new Giphy("dc6zaTOxFJmzC");
-        SearchFeed feed = null;
+
+        FlickrApi flickrApi = new FlickrApi();
+
+
+        Bot bot = new Bot("250024402:AAErvbeFLpIEC-Oe-yjCneU7SgPu7RdTwDM");
         try {
-            feed = giphy.search("cat", 1, 0);
-        } catch (GiphyException e) {
+            bot.run();
+        } catch (UnirestException e) {
             e.printStackTrace();
         }
-        System.out.println(feed.getDataList().get(0).getImages().getOriginal().getUrl());
     }
 }
