@@ -21,10 +21,10 @@ public final class Bot {
                 .asJson();
     }
 
-    public HttpResponse<JsonNode> sendPhoto(Integer chatId, String text) throws UnirestException {
+    public HttpResponse<JsonNode> sendPhoto(Integer chatId, String photoUrl) throws UnirestException {
         return Unirest.post(endpoint + token + "/sendPhoto")
                 .field("chat_id", chatId)
-                .field("photo", text)
+                .field("photo", photoUrl)
                 .field("caption", "Another cool abdaly pic")
                 .asJson();
     }
@@ -60,8 +60,6 @@ public final class Bot {
                                 .getJSONObject("chat")
                                 .getInt("id");
 
-
-
                         String text = message
                                 .getString("text");
 
@@ -80,7 +78,7 @@ public final class Bot {
                             String giphyImagePath = giphy.getGiphy(text);
                             sendMessage(chat_id, giphyImagePath);
                         } else if (text.contains("/picture")) {
-                            FlickrApi flickrApi = new FlickrApi();
+                            FlickrApi flickrApi = new FlickrApi("146540219@N08");
                             try {
                                 sendPhoto(chat_id, flickrApi.getPhotoLink());
                             } catch (FlickrException e) {
