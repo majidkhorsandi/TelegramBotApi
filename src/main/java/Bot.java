@@ -6,9 +6,6 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-/**
- * Created by majid on 25/08/16.
- */
 public final class Bot {
     private final String endpoint = "https://api.telegram.org/bot";
     private final String token;
