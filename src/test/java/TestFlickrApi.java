@@ -12,6 +12,6 @@ public class TestFlickrApi {
 
     @Test
     public void testGetPhotoLinkWithInvalidUserId() {
-       Assert.assertTrue(true);
+       Assert.assertTrue(false);
     }
 }
